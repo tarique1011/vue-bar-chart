@@ -3,9 +3,7 @@
     <BarChart
       :options="this.options"
       xlabel="Marks"
-      ylabel="Subjects"
-      :width="width"
-      :height="height"
+      ylabel="Subjects"    
     />
   </div>
 </template>
@@ -14,7 +12,6 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import BarChart from "./components/BarChart.vue";
-import './assets/style/App.css';
 
 @Component({
   components: {
@@ -33,7 +30,7 @@ class App extends Vue {
     },
     {
       title: "Chemistry",
-      value: 550,
+      value: 55,
       color: "#8AB721"
     },
     {
@@ -52,20 +49,30 @@ class App extends Vue {
       color: "#E64A33"
     },
     {
-      title: "English",
-      value: 370,
-      color: "#E64A33"
+      title: "Maths",
+      value: 500,
+      color: "#545D79"
+    },
+    {
+      title: "Chemistry",
+      value: 55,
+      color: "#8AB721"
+    },
+    {
+      title: "Physics",
+      value: 460,
+      color: "#C77D99"
+    },
+    {
+      title: "Ecomonics",
+      value: 100,
+      color: "#78CAE3"
     },
     {
       title: "English",
       value: 370,
       color: "#E64A33"
     },
-    {
-      title: "English",
-      value: 370,
-      color: "#E64A33"
-    }
   ];
 }
 

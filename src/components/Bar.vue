@@ -38,6 +38,7 @@ class Bar extends Vue {
   canvas = null;
 
   showValue = false;
+
   displayValue() {
     this.showValue = true;
   }
@@ -60,3 +61,22 @@ class Bar extends Vue {
 
 export default Bar;
 </script>
+
+<style scoped>
+.bar {
+  margin-right: 2%;
+}
+
+.bar:hover {
+  cursor: pointer;
+}
+
+.value {
+  position: absolute;
+  bottom: 10;
+  background-color: #4287f5;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+</style>
