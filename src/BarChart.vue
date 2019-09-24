@@ -18,8 +18,6 @@
               :title="option.title"
               :value="option.value"
               :color="option.color"
-              :valueBackgroundColor="valueBackgroundColor"
-              :valueTextColor="valueTextColor"
             />
           </ul>
         </div>
@@ -54,14 +52,6 @@ export default {
     options: {
       type: Array,
       required: true
-    },
-     valueBackgroundColor: {
-      type: String,
-      required: false,
-    },
-    valueTextColor: {
-      type: String,
-      required: false,
     }
   },
   components: {
@@ -72,6 +62,8 @@ export default {
     this.heightFactor = this.getHeightFactor(maxBarHeight);
   },
   methods: {
+
+    //get the maximum value among the options for scaling
     getMaxValue() {
       let maxValue = Math.max.apply(
         Math,
@@ -82,6 +74,7 @@ export default {
       return maxValue;
     },
 
+    //get the scale factor for the height of each bar
     getHeightFactor(maxHeight) {
       let factor = (0.85 * this.height) / maxHeight;
       return factor;

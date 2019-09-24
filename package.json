@@ -1,8 +1,8 @@
 {
 	"name": "vue-bar-chart",
-	"version": "0.1.8",
+	"version": "0.1.10",
 	"private": false,
-	"main": "src/BarChart.vue",
+	"main": "src/main.js",
 	"scripts": {
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",

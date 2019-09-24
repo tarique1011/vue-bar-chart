@@ -1,11 +1,7 @@
 <template>
   <div class="bar" @mouseover="displayValue()" @mouseleave="hideValue()">
     <canvas ref="myCanvas" :height="height" :width="width" />
-    <div
-      class="value"
-      :style="{backgroundColor: valueBackgroundColor, color: valueTextColor }"
-      v-if="showValue"
-    >{{ title}}({{ value }})</div>
+    <div class="value" v-if="showValue">{{ title}}({{ value }})</div>
   </div>
 </template>
 
@@ -33,14 +29,6 @@ export default {
     width: {
       type: Number,
       required: true
-    },
-    valueBackgroundColor: {
-      type: String,
-      default: '#5688d3'
-    },
-    valueTextColor: {
-      type: String,
-      default: '#ffffff'
     }
   },
   data() {
@@ -60,10 +48,13 @@ export default {
     ctx.fill();
   },
   methods: {
+
+    //show value of bar on mouse hover
     displayValue() {
       this.showValue = true;
     },
 
+    //hide value of bar when mouse leaves
     hideValue() {
       this.showValue = false;
     }
@@ -83,6 +74,8 @@ export default {
 .value {
   position: absolute;
   bottom: 10;
+  background-color: #000000;
+  color: #ffffff;
   padding: 5px;
   border-radius: 5px;
 }
