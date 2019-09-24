@@ -1,29 +1,64 @@
 # vue-bar-chart
 
-## Project setup
+vue-bar-chart is a customized bar chart component to showcase statistical data in a clean way.
+
+### Install
+
 ```
-npm install
+cd vueproject
+npm install --save vue-bar-chart
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### Usage 
 
-### Compiles and minifies for production
-```
-npm run build
-```
+```javascript
+<template>
+  <div id="app">
+    <BarChart :options="options" :width="width" :height="height" xlabel="Prices($)" ylabel="Year" />
+  </div>
+</template>
 
-### Run your tests
-```
-npm run test
-```
+<script>
+import BarChart from "vue-bar-chart";
 
-### Lints and fixes files
+export default {
+  name: "app",
+  components: {
+    BarChart
+  },
+  data() {
+    return {
+      width: 600,
+      height: 600,
+      options: [
+        {
+          title: "2015",
+          value: 90,
+          color: "#a86f32"
+        },
+        {
+          title: "2016",
+          value: 70,
+          color: "#545D79"
+        },
+        {
+          title: "2017",
+          value: 95,
+          color: "#8AB721"
+        },
+        {
+          title: "2018",
+          value: 40,
+          color: "#32a852"
+        },
+        {
+          title: "2019",
+          value: 60,
+          color: "#4832a8"
+        }
+      ]
+    };
+  }
+};
+</script>
 ```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
