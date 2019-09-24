@@ -1,0 +1,15 @@
+.bar {
+	margin-right: 1%;
+}
+
+.bar:hover {
+	cursor: pointer;
+}
+
+.value {
+	position: absolute;
+	bottom: 10;
+	background-color: #ccfffe;
+	color: black;
+	padding: 5px;
+}

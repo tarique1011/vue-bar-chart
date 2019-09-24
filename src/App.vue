@@ -1,28 +1,73 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <BarChart
+      :options="this.options"
+      xlabel="Marks"
+      ylabel="Subjects"
+      :width="width"
+      :height="height"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Vue from "vue";
+import Component from "vue-class-component";
+import BarChart from "./components/BarChart.vue";
+import './assets/style/App.css';
 
-export default {
-  name: 'app',
+@Component({
   components: {
-    HelloWorld
+    BarChart
   }
-}
-</script>
+})
+class App extends Vue {
+  width = 600;
+  height = 800;
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  options = [
+    {
+      title: "Maths",
+      value: 500,
+      color: "#545D79"
+    },
+    {
+      title: "Chemistry",
+      value: 550,
+      color: "#8AB721"
+    },
+    {
+      title: "Physics",
+      value: 460,
+      color: "#C77D99"
+    },
+    {
+      title: "Ecomonics",
+      value: 100,
+      color: "#78CAE3"
+    },
+    {
+      title: "English",
+      value: 370,
+      color: "#E64A33"
+    },
+    {
+      title: "English",
+      value: 370,
+      color: "#E64A33"
+    },
+    {
+      title: "English",
+      value: 370,
+      color: "#E64A33"
+    },
+    {
+      title: "English",
+      value: 370,
+      color: "#E64A33"
+    }
+  ];
 }
-</style>
+
+export default App;
+</script>
