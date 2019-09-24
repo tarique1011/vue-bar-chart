@@ -18,7 +18,7 @@ npm install --save vue-bar-chart
       :options="options" 
       :width="width"  //default is 400px
       :height="height" //default is 400px
-      xlabel="Prices($)" 
+      xlabel="Stock Prices($)" 
       ylabel="Year" />
   </div>
 </template>
