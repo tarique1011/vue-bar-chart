@@ -30,14 +30,10 @@
 </template>
 
 <script>
-import Vue from "vue";
-import Component from "vue-class-component";
 import Bar from "./Bar.vue";
 
-@Component({
-  components: {
-    Bar
-  },
+export default {
+  name: "BarChart",
   props: {
     xlabel: {
       type: String,
@@ -59,63 +55,63 @@ import Bar from "./Bar.vue";
       type: Array,
       required: true
     },
-    valueBackgroundColor: {
+     valueBackgroundColor: {
       type: String,
-      required: false
+      required: false,
     },
     valueTextColor: {
       type: String,
-      required: false
+      required: false,
     }
-  }
-})
-class BarChart extends Vue {
+  },
+  components: {
+    Bar
+  },
   created() {
     let maxBarHeight = this.getMaxValue();
     this.heightFactor = this.getHeightFactor(maxBarHeight);
+  },
+  methods: {
+    getMaxValue() {
+      let maxValue = Math.max.apply(
+        Math,
+        this.options.map(function(option) {
+          return option.value;
+        })
+      );
+      return maxValue;
+    },
+
+    getHeightFactor(maxHeight) {
+      let factor = (0.85 * this.height) / maxHeight;
+      return factor;
+    },
+
+    getBarHeight(value) {
+      return this.heightFactor * value;
+    },
+
+    getBarWidth() {
+      let bars = this.options.length;
+
+      let barWidth = (1 / bars) * 0.85 * this.width;
+      barWidth = barWidth - 0.02 * 0.85 * this.width;
+
+      return barWidth;
+    },
+
+    getContainerWidth() {
+      return this.width + "px";
+    },
+
+    getContainerHeight() {
+      return this.height + "px";
+    }
   }
-
-  getMaxValue() {
-    let maxValue = Math.max.apply(
-      Math,
-      this.options.map(function(option) {
-        return option.value;
-      })
-    );
-    return maxValue;
-  }
-
-  getHeightFactor(maxHeight) {
-    let factor = (0.85 * this.height) / maxHeight;
-    return factor;
-  }
-
-  getBarHeight(value) {
-    return this.heightFactor * value;
-  }
-
-  getBarWidth() {
-    let bars = this.options.length;
-
-    let barWidth = (1 / bars) * 0.85 * this.width;
-    barWidth = barWidth - 0.02 * 0.85 * this.width;
-
-    return barWidth;
-  }
-
-  getContainerWidth() {
-    return this.width + "px";
-  }
-
-  getContainerHeight() {
-    return this.height + "px";
-  }
-}
-
-export default BarChart;
+};
 </script>
 
-<style>
+<style lang="css" scoped>
 ul {
   padding: 0px;
   margin: 0px;

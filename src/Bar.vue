@@ -10,10 +10,8 @@
 </template>
 
 <script>
-import Vue from "vue";
-import Component from "vue-class-component";
-
-@Component({
+export default {
+  name: "Bar",
   props: {
     title: {
       type: String,
@@ -38,29 +36,19 @@ import Component from "vue-class-component";
     },
     valueBackgroundColor: {
       type: String,
-      required: false,
-      default: "#4287f5"
+      default: '#5688d3'
     },
     valueTextColor: {
       type: String,
-      required: false,
-      default: "#ffffff"
+      default: '#ffffff'
     }
-  }
-})
-class Bar extends Vue {
-  canvas = null;
-
-  showValue = false;
-
-  displayValue() {
-    this.showValue = true;
-  }
-
-  hideValue() {
-    this.showValue = false;
-  }
-
+  },
+  data() {
+    return {
+      canvas: null,
+      showValue: null
+    };
+  },
   mounted() {
     this.canvas = this.$refs.myCanvas;
 
@@ -70,13 +58,20 @@ class Bar extends Vue {
     ctx.fillStyle = this.color;
 
     ctx.fill();
-  }
-}
+  },
+  methods: {
+    displayValue() {
+      this.showValue = true;
+    },
 
-export default Bar;
+    hideValue() {
+      this.showValue = false;
+    }
+  }
+};
 </script>
 
-<style scoped>
+<style lang="css" scoped>
 .bar {
   margin-right: 2%;
 }
