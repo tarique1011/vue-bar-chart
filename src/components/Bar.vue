@@ -1,7 +1,11 @@
 <template>
   <div class="bar" @mouseover="displayValue()" @mouseleave="hideValue()">
     <canvas ref="myCanvas" :height="height" :width="width" />
-    <div class="value" v-if="showValue">{{ title}}({{ value }})</div>
+    <div
+      class="value"
+      :style="{backgroundColor: valueBackgroundColor, color: valueTextColor }"
+      v-if="showValue"
+    >{{ title}}({{ value }})</div>
   </div>
 </template>
 
@@ -31,6 +35,16 @@ import Component from "vue-class-component";
     width: {
       type: Number,
       required: true
+    },
+    valueBackgroundColor: {
+      type: String,
+      required: false,
+      default: "#4287f5"
+    },
+    valueTextColor: {
+      type: String,
+      required: false,
+      default: "#ffffff"
     }
   }
 })
@@ -74,8 +88,6 @@ export default Bar;
 .value {
   position: absolute;
   bottom: 10;
-  background-color: #4287f5;
-  color: white;
   padding: 5px;
   border-radius: 5px;
 }

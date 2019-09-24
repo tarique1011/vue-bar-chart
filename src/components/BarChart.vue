@@ -18,6 +18,8 @@
               :title="option.title"
               :value="option.value"
               :color="option.color"
+              :valueBackgroundColor="valueBackgroundColor"
+              :valueTextColor="valueTextColor"
             />
           </ul>
         </div>
@@ -30,7 +32,7 @@
 <script>
 import Vue from "vue";
 import Component from "vue-class-component";
-import Bar from './Bar.vue';
+import Bar from "./Bar.vue";
 
 @Component({
   components: {
@@ -56,6 +58,14 @@ import Bar from './Bar.vue';
     options: {
       type: Array,
       required: true
+    },
+    valueBackgroundColor: {
+      type: String,
+      required: false
+    },
+    valueTextColor: {
+      type: String,
+      required: false
     }
   }
 })

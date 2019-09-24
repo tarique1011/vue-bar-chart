@@ -3,7 +3,9 @@
     <BarChart
       :options="this.options"
       xlabel="Marks"
-      ylabel="Subjects"    
+      ylabel="Subjects"
+      valueBackgroundColor="#000"
+      valueTextColor="#fff"
     />
   </div>
 </template>
@@ -72,7 +74,7 @@ class App extends Vue {
       title: "English",
       value: 370,
       color: "#E64A33"
-    },
+    }
   ];
 }
 
