@@ -14,7 +14,12 @@ npm install --save vue-bar-chart
 ```javascript
 <template>
   <div id="app">
-    <BarChart :options="options" :width="width" :height="height" xlabel="Prices($)" ylabel="Year" />
+    <BarChart 
+      :options="options" 
+      :width="width"  //default is 400px
+      :height="height" //default is 400px
+      xlabel="Prices($)" 
+      ylabel="Year" />
   </div>
 </template>
 
