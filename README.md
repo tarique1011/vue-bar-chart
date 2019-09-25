@@ -18,7 +18,7 @@ npm install --save vue-bar-chart
       :options="options" 
       :width="width"  //default is 400px
       :height="height" //default is 400px
-      xlabel="Prices($)" 
+      xlabel="Stock Prices($)" 
       ylabel="Year" />
   </div>
 </template>
@@ -67,3 +67,5 @@ export default {
 };
 </script>
 ```
+
+For visual representation please visit https://modest-poincare-6995f6.netlify.com
