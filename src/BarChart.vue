@@ -1,28 +1,26 @@
 <template>
-  <div id="app">
-    <div
-      class="bar-chart-container"
-      :style="{width: getContainerWidth(), height: getContainerHeight()}"
-    >
-      <div class="left-container">
-        <span class="xlabel">{{ xlabel }}</span>
+  <div
+    class="bar-chart-container"
+    :style="{width: getContainerWidth(), height: getContainerHeight()}"
+  >
+    <div class="left-container">
+      <span class="ylabel">{{ ylabel }}</span>
+    </div>
+    <div class="right-container">
+      <div class="bars-container">
+        <ul class="bar-list">
+          <Bar
+            v-for="(option,index) of options"
+            :key="index"
+            :width="getBarWidth()"
+            :height="getBarHeight(option.value)"
+            :title="option.title"
+            :value="option.value"
+            :color="option.color"
+          />
+        </ul>
       </div>
-      <div class="right-container">
-        <div class="bars-container">
-          <ul class="bar-list">
-            <Bar
-              v-for="(option,index) of options"
-              :key="index"
-              :width="getBarWidth()"
-              :height="getBarHeight(option.value)"
-              :title="option.title"
-              :value="option.value"
-              :color="option.color"
-            />
-          </ul>
-        </div>
-        <span class="ylabel">{{ ylabel }}</span>
-      </div>
+      <span class="xlabel">{{ xlabel }}</span>
     </div>
   </div>
 </template>
@@ -57,12 +55,7 @@ export default {
   components: {
     Bar
   },
-  created() {
-    let maxBarHeight = this.getMaxValue();
-    this.heightFactor = this.getHeightFactor(maxBarHeight);
-  },
   methods: {
-
     //get the maximum value among the options for scaling
     getMaxValue() {
       let maxValue = Math.max.apply(
@@ -76,12 +69,14 @@ export default {
 
     //get the scale factor for the height of each bar
     getHeightFactor(maxHeight) {
-      let factor = (0.85 * this.height) / maxHeight;
+      let factor = (0.85 * this.height - 10) / maxHeight;
       return factor;
     },
 
     getBarHeight(value) {
-      return this.heightFactor * value;
+      let maxValue = this.getMaxValue();
+      let heightFactor = this.getHeightFactor(maxValue);
+      return heightFactor * value;
     },
 
     getBarWidth() {
@@ -124,7 +119,7 @@ ul {
   align-items: center;
 }
 
-.xlabel {
+.ylabel {
   text-align: center;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
@@ -156,7 +151,7 @@ ul {
   height: 100%;
 }
 
-.ylabel {
+.xlabel {
   height: 10%;
   width: 100%;
   display: flex;

@@ -38,20 +38,24 @@ export default {
     };
   },
   mounted() {
-    this.canvas = this.$refs.myCanvas;
-
-    const ctx = this.canvas.getContext("2d");
-    ctx.beginPath();
-    ctx.rect(0, 0, this.width, this.height);
-    ctx.fillStyle = this.color;
-
-    ctx.fill();
+    this.drawCanvas();
+  },
+  updated() {
+    this.drawCanvas();
   },
   methods: {
-
     //show value of bar on mouse hover
     displayValue() {
       this.showValue = true;
+    },
+
+    drawCanvas() {
+      this.canvas = this.$refs.myCanvas;
+      const ctx = this.canvas.getContext("2d");
+      ctx.beginPath();
+      ctx.rect(0, 0, this.width, this.height);
+      ctx.fillStyle = this.color;
+      ctx.fill();
     },
 
     //hide value of bar when mouse leaves
