@@ -1,12 +1,11 @@
 {
 	"name": "vue-bar-chart",
-	"version": "0.1.14",
+	"version": "0.1.19",
 	"private": false,
 	"main": "src/main.js",
 	"scripts": {
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
-		"build-bundle": "vue-cli-service build --target lib --name vue-bar-chart src/main.js",
 		"lint": "vue-cli-service lint"
 	},
 	"files": [

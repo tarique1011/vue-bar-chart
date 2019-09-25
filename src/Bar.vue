@@ -44,10 +44,6 @@ export default {
     this.drawCanvas();
   },
   methods: {
-    //show value of bar on mouse hover
-    displayValue() {
-      this.showValue = true;
-    },
 
     drawCanvas() {
       this.canvas = this.$refs.myCanvas;
@@ -56,6 +52,11 @@ export default {
       ctx.rect(0, 0, this.width, this.height);
       ctx.fillStyle = this.color;
       ctx.fill();
+    },
+
+    //show value of bar on mouse hover
+    displayValue() {
+      this.showValue = true;
     },
 
     //hide value of bar when mouse leaves

@@ -64,24 +64,26 @@ export default {
           return option.value;
         })
       );
+      
       return maxValue;
     },
 
     //get the scale factor for the height of each bar
     getHeightFactor(maxHeight) {
       let factor = (0.85 * this.height - 10) / maxHeight;
+
       return factor;
     },
 
     getBarHeight(value) {
       let maxValue = this.getMaxValue();
       let heightFactor = this.getHeightFactor(maxValue);
+
       return heightFactor * value;
     },
 
     getBarWidth() {
       let bars = this.options.length;
-
       let barWidth = (1 / bars) * 0.85 * this.width;
       barWidth = barWidth - 0.02 * 0.85 * this.width;
 
