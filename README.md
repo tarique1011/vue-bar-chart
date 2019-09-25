@@ -67,3 +67,5 @@ export default {
 };
 </script>
 ```
+
+For visual representation please visit https://modest-poincare-6995f6.netlify.com
